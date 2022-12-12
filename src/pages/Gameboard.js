@@ -20,7 +20,6 @@ function Gameboard() {
   const [cardsToArrange, setCardsToArrange] = useState(
     distributeCarts(CARDS.slice(0, 28)),
   );
-
   const [pickPileCards, setPickPileCards] = useState(CARDS.slice(28));
   const [selectedCards, setSelectedCards] = useState([]);
   const { boardClick, setBoardClick } = useBoardClick();
@@ -37,6 +36,7 @@ function Gameboard() {
 
   useEffect(() => {
     if (selectedCards.length === 2) {
+      // with this condition we can insert card to goal pile with double click
       if (selectedCards[0].id === selectedCards[1].id) {
         insertToGoalPileWithClick(
           setGoalCards,
@@ -46,6 +46,7 @@ function Gameboard() {
           setCardsToArrange,
         );
       }
+
       if (pickPileCards.indexOf(selectedCards[1]) === -1) {
         if (pickPileCards.indexOf(selectedCards[0]) !== -1) {
           if (

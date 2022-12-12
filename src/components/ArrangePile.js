@@ -120,7 +120,6 @@ const Pile = styled.div`
 const Layer = styled.div`
   opacity: ${({ hovering }) => (hovering ? '.5' : '1')};
 `;
-
 const PlaceHolderFrame = styled.div`
   cursor: pointer;
   border-radius: 0.6rem;
